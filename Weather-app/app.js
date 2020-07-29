@@ -1,5 +1,6 @@
 const request = require("request");
 const geocode = require("./utils/geocode");
+const forecast = require("./utils/forecast");
 
 // const url =
 //   "http://api.weatherstack.com/current?access_key=a0db3adca91aa5265c1b342dc13fc210&query=37.863,-118&units=f";
@@ -21,25 +22,12 @@ const geocode = require("./utils/geocode");
 //   }
 // });
 
-// Geocoding
-// Address -> Lat/Long -> Weather
-
-// const geocodeURL =
-//   "https://api.mapbox.com/geocoding/v5/mapbox.places/philadephia.json?access_token=pk.eyJ1Ijoiam1oaWx0b24iLCJhIjoiY2tjdGZhNHpjMXkyYzJ5bW91dWg4aW5kaSJ9.LMkqpNEbSrP68S5zXYDFaw&limit=1";
-
-// request({ url: geocodeURL, json: true }, (error, response) => {
-//   if (error) {
-//     console.log("Unable to connect to location services");
-//   } else if (response.body.features.length === 0) {
-//     console.log("Unable to find location.  Try another search");
-//   } else {
-//     const latitude = response.body.features[0].center[1];
-//     const longitude = response.body.features[0].center[0];
-//     console.log(latitude, longitude);
-//   }
-// });
-
 geocode("Boston", (error, data) => {
+  console.log("Error", error);
+  console.log("Data", data);
+});
+
+forecast(44.1545, -75.7088, (error, data) => {
   console.log("Error", error);
   console.log("Data", data);
 });
